@@ -1,0 +1,181 @@
+.search-suggestions {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  width: calc(100% - 64px);
+
+  background: rgba(255, 255, 255, 0.15); // Semi-transparent background
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); // Safari support
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  animation: fadeIn .2s ease;
+}
+
+.suggestion{
+width:100%;
+display:flex;
+align-items:center;
+gap:14px;
+padding:13px 18px;
+background:none;
+border:none;
+outline:none;
+cursor:pointer;
+color:var(--text);
+text-align:left;
+transition:.25s;
+
+svg{
+font-size:18px;
+color:var(--text-secondary);
+flex-shrink:0;
+}
+
+span{
+flex:1;
+font-size:15px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+&:hover{
+background:var(--hover);
+}
+
+&.active{
+background:var(--hover);
+}
+
+&:active{
+transform:scale(.99);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(-8px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(min-width:1800px){
+.search-suggestions{
+width:calc(100% - 64px);
+}
+
+.suggestion{
+padding:14px 20px;
+
+span{
+font-size:16px;
+}
+}
+}
+
+@media(max-width:1440px){
+.search-suggestions{
+width:calc(100% - 64px);
+}
+}
+
+@media(max-width:1200px){
+.search-suggestions{
+width:calc(100% - 60px);
+}
+
+.suggestion{
+
+span{
+font-size:14px;
+}
+}
+}
+
+@media(max-width:992px){
+.search-suggestions{
+width:calc(100% - 60px);
+}
+
+.suggestion{
+padding:12px 16px;
+}
+}
+
+@media(max-width:768px){
+.search-suggestions{
+top:48px;
+width:calc(100% - 54px);
+border-radius:12px;
+}
+
+.suggestion{
+padding:11px 14px;
+
+svg{
+font-size:17px;
+}
+
+span{
+font-size:13px;
+}
+}
+}
+
+@media(max-width:576px){
+.search-suggestions{
+width:calc(100% - 50px);
+}
+
+.suggestion{
+padding:10px 12px;
+
+span{
+font-size:12px;
+}
+}
+}
+
+@media(max-width:480px){
+.search-suggestions{
+width:calc(100% - 46px);
+}
+
+.suggestion{
+
+svg{
+font-size:16px;
+}
+
+span{
+font-size:12px;
+}
+}
+}
+
+@media(max-width:360px){
+.search-suggestions{
+width:calc(100% - 42px);
+}
+
+.suggestion{
+padding:9px 10px;
+
+svg{
+font-size:15px;
+}
+
+span{
+font-size:11px;
+}
+}
+}
