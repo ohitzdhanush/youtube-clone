@@ -4,6 +4,7 @@ import { ThemeProvider } from "./themecontext";
 import { WatchLaterProvider } from "./watchlater";
 import { LikedVideosProvider } from "./likedvideos";
 import { HistoryProvider } from "./history";
+import { AuthProvider } from "./authcontext";
 
 const AppProvider = ({ children }) => {
   return (
@@ -13,7 +14,9 @@ const AppProvider = ({ children }) => {
           <WatchLaterProvider>
             <LikedVideosProvider>
               <HistoryProvider>
+                <AuthProvider>
             {children}
+            </AuthProvider>
             </HistoryProvider>
             </LikedVideosProvider>
             </WatchLaterProvider>

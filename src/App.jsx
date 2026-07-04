@@ -6,7 +6,10 @@ import Channel from "./Pages/Channel";
 import WatchLater from "./Pages/WatchLater";
 import LikedVideos from "./Pages/LikedVideos";
 import History from "./Pages/History";
-
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import PublicRoute from "./Components/PublicRoute";
 const App=()=>{
 return(
 <Routes>
@@ -14,11 +17,42 @@ return(
 <Route path="/search/:query" element={<Search/>}/>
 <Route path="/video/:id" element={<VideoDetails/>}/>
 <Route path="/channel/:id" element={<Channel/>}/>
-<Route path="/watch-later" element={<WatchLater/>}/>
-<Route path="/liked-videos" element={<LikedVideos/>}/>
-<Route path="/history" element={<History/>}/>
+<Route path="/login" element={<PublicRoute><Login/></PublicRoute>}/>
+<Route path="/register" element={<PublicRoute><Register/></PublicRoute>}/>
+<Route path="/watch-later" element={<ProtectedRoute><WatchLater/></ProtectedRoute>}/>
+<Route path="/liked-videos" element={<ProtectedRoute><LikedVideos/></ProtectedRoute>}/>
+<Route path="/history" element={<ProtectedRoute><History/></ProtectedRoute>}/>
 </Routes>
 );
 };
 
 export default App;
+// import {Routes,Route} from "react-router-dom";
+// import Home from "./Pages/Home";
+// import Search from "./Pages/Search";
+// import VideoDetails from "./Pages/VideoDetails";
+// import Channel from "./Pages/Channel";
+// import WatchLater from "./Pages/WatchLater";
+// import LikedVideos from "./Pages/LikedVideos";
+// import History from "./Pages/History";
+// import Register from "./Pages/Register";
+// import Login from "./Pages/Login";
+// import ProtectedRoute from "./Components/ProtectedRoute";
+// import PublicRoute from "./Components/PublicRoute";
+// const App=()=>{
+// return(
+// <Routes>
+// <Route path="/login" element={<PublicRoute><Login/></PublicRoute>}/>
+// <Route path="/register" element={<PublicRoute><Register/></PublicRoute>}/>
+// <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+// <Route path="/search/:query" element={<ProtectedRoute><Search/></ProtectedRoute>}/>
+// <Route path="/video/:id" element={<ProtectedRoute><VideoDetails/></ProtectedRoute>}/>
+// <Route path="/channel/:id" element={<ProtectedRoute><Channel/></ProtectedRoute>}/>
+// <Route path="/watch-later" element={<ProtectedRoute><WatchLater/></ProtectedRoute>}/>
+// <Route path="/liked-videos" element={<ProtectedRoute><LikedVideos/></ProtectedRoute>}/>
+// <Route path="/history" element={<ProtectedRoute><History/></ProtectedRoute>}/>
+// </Routes>
+// );
+// };
+
+// export default App;
