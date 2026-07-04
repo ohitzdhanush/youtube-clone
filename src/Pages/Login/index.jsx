@@ -3,10 +3,12 @@ import {useState} from "react";
 import {Link,useNavigate} from "react-router-dom";
 import {signInWithEmailAndPassword,signInWithPopup} from "firebase/auth";
 import {auth,googleProvider} from "../../Services/firebase";
+import {useNotification} from "../../Context/notificationcontext";  
 
 const Login=()=>{
 
 const navigate=useNavigate();
+const{addNotification}=useNotification();
 
 const[email,setEmail]=useState("");
 const[password,setPassword]=useState("");
@@ -25,13 +27,16 @@ return;
 try{
 setLoading(true);
 
-await signInWithEmailAndPassword(
-auth,
-email,
-password
+await signInWithEmailAndPassword(auth,email,password);
+
+addNotification(
+"Welcome Back 👋",
+auth.currentUser.email,
+"login"
 );
 
 navigate("/");
+
 
 }catch(err){
 setError(err.message);
@@ -42,7 +47,12 @@ setLoading(false);
 
 const handleGoogleLogin=async()=>{
 try{
-await signInWithPopup(auth,googleProvider);
+const result=await signInWithPopup(auth,googleProvider);
+addNotification(
+"Welcome Back 👋",
+result.user.email,
+"login"
+);
 navigate("/");
 }catch(err){
 setError(err.message);

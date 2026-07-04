@@ -1,6 +1,6 @@
 import "./index.scss";
 import {useNavigate,useLocation} from "react-router-dom";
-import {MdHomeFilled,MdOutlineSubscriptions,MdOutlineWatchLater} from "react-icons/md";
+import {MdHomeFilled,MdOutlineSubscriptions,MdOutlineWatchLater,MdPlaylistPlay} from "react-icons/md";
 import {SiYoutubeshorts} from "react-icons/si";
 import {FaHistory} from "react-icons/fa";
 import {BiLike} from "react-icons/bi";
@@ -34,6 +34,10 @@ return(
 <li className={location.pathname==="/watch-later"?"active":""} onClick={()=>navigate("/watch-later")}>
 <MdOutlineWatchLater/>
 <span>Watch Later</span>
+</li>
+<li className={location.pathname==="/playlists"?"active":""} onClick={()=>navigate("/playlists")}>
+<MdPlaylistPlay/>
+<span>Playlists</span>
 </li>
 <li className={location.pathname==="/liked-videos"?"active":""} onClick={()=>navigate("/liked-videos")}>
 <BiLike/>

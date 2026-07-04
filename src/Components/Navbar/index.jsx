@@ -2,23 +2,27 @@ import "./index.scss";
 import {useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {HiMenu} from "react-icons/hi";
-import {FaYoutube,FaRegUserCircle,FaMoon,FaSun} from "react-icons/fa";
-import {IoSearch} from "react-icons/io5";
+import {FaYoutube,FaRegUserCircle,FaMoon,FaSun,FaBell} from "react-icons/fa";
+import {IoSearch,IoMic} from "react-icons/io5";
 import {useSidebar} from "../../Context/sidebarcontext";
 import {useSearch} from "../../Context/search";
 import {useTheme} from "../../Context/themecontext";
 import {getSearchSuggestions} from "../../Services/youtube";
 import useDebounce from "../../Hooks/useDebounce";
 import SearchSuggestions from "../SearchSuggestions";
-import ProfileMenu from "../ProfileMenu/index";
+import ProfileMenu from "../ProfileMenu";
+import VoiceSearch from "../VoiceSearch";
+import {useNotification} from "../../Context/notificationcontext";
 
 const Navbar=()=>{
-
 const navigate=useNavigate();
 const{toggleSidebar}=useSidebar();
 const{theme,toggleTheme}=useTheme();
+const{notifications}=useNotification();
+const unreadCount=notifications.filter(item=>!item.read).length;
 const{setSearchText,suggestions,setSuggestions}=useSearch();
 const[input,setInput]=useState("");
+const[showVoiceSearch,setShowVoiceSearch]=useState(false);
 const[showProfile,setShowProfile]=useState(false);
 const debouncedValue=useDebounce(input);
 
@@ -36,20 +40,14 @@ setSuggestions(data);
 };
 
 const handleSearch=(value=input)=>{
-
 const query=value.trim();
-
 if(query.length<2)return;
-
 setSearchText(query);
-
 setSuggestions([]);
-
 navigate(`/search/${encodeURIComponent(query)}`);
-
 };
 
-const handleKeyDown=(e)=>{
+const handleKeyDown=e=>{
 if(e.key==="Enter")handleSearch();
 };
 
@@ -62,44 +60,48 @@ return(
 <span>YouTube</span>
 </div>
 </div>
-
 <div className="navbar__center">
 <div className="search-box">
 <input
 type="text"
 placeholder="Search"
 value={input}
-onChange={(e)=>setInput(e.target.value)}
+onChange={e=>setInput(e.target.value)}
 onKeyDown={handleKeyDown}
 />
-<button onClick={()=>handleSearch()}>
+<button type="button" onClick={()=>handleSearch()}>
 <IoSearch/>
+</button>
+<button type="button" className="mic-btn" onClick={()=>setShowVoiceSearch(true)}>
+<IoMic/>
 </button>
 <SearchSuggestions
 suggestions={suggestions}
-onSelect={(item)=>{
+onSelect={item=>{
 setInput(item);
 handleSearch(item);
 }}
 />
 </div>
+<VoiceSearch
+open={showVoiceSearch}
+onClose={()=>setShowVoiceSearch(false)}
+onSearch={text=>{
+setInput(text);
+setSearchText(text);
+setSuggestions([]);
+navigate(`/search/${encodeURIComponent(text)}`);
+}}
+/>
 </div>
 <div className="navbar__right">
-<button
-className="theme-btn"
-onClick={toggleTheme}>
-{theme==="dark"?<FaSun/>:<FaMoon/>}
-</button>
-<FaRegUserCircle
-className="profile-icon"
-onClick={()=>setShowProfile(prev=>!prev)}/>
-<ProfileMenu
-open={showProfile}
-onClose={()=>setShowProfile(false)}/>
+<button className="theme-btn" onClick={toggleTheme}>{theme==="dark"?<FaSun/>:<FaMoon/>}</button>
+<div className="notification-btn" onClick={()=>navigate("/notifications")}><FaBell/>{unreadCount>0&&<span className="notification-count">{unreadCount>99?"99+":unreadCount}</span>}</div>
+<FaRegUserCircle className="profile-icon" onClick={()=>setShowProfile(prev=>!prev)}/>
+<ProfileMenu open={showProfile} onClose={()=>setShowProfile(false)}/>
 </div>
 </header>
 );
-
 };
 
 export default Navbar;

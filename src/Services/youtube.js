@@ -136,6 +136,8 @@ return null;
 export const getRelatedVideos=async(id)=>{
 try{
 
+if(!id)return[];
+
 const response=await axios.get(`${BASE_URL}/search`,{
 params:{
 part:"snippet",
@@ -146,14 +148,37 @@ key:API_KEY
 }
 });
 
-return response.data.items;
+return response.data.items||[];
 
 }catch(error){
+
+if(error.response?.status===400){
+
+try{
+
+const video=await getVideoDetails(id);
+
+if(!video)return[];
+
+const response=await axios.get(`${BASE_URL}/search`,{
+params:{
+part:"snippet",
+q:video.snippet.channelTitle,
+type:"video",
+maxResults:12,
+key:API_KEY
+}
+});
+return response.data.items||[];
+}catch(err){
+console.log(err);
+return[];
+}
+}
 console.log(error);
 return[];
 }
 };
-
 export const getSearchSuggestions=async(query)=>{
 try{
 

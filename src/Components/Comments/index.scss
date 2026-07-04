@@ -1,0 +1,299 @@
+.comments{
+margin-top:35px;
+padding:20px 0;
+color:var(--text);
+}
+.comments h3{
+font-size:22px;
+font-weight:600;
+margin-bottom:25px;
+}
+.comment-input{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:35px;
+}
+.comment-input img{
+width:42px;
+height:42px;
+border-radius:50%;
+object-fit:cover;
+flex-shrink:0;
+}
+.comment-input input{
+flex:1;
+background:transparent;
+border:none;
+border-bottom:1px solid var(--border);
+padding:10px 5px;
+font-size:15px;
+color:var(--text);
+outline:none;
+}
+.comment-input input::placeholder{
+color:var(--text-secondary);
+}
+.comment-input button{
+padding:10px 18px;
+border:none;
+border-radius:20px;
+background:#3ea6ff;
+color:#fff;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+.comment-input button:hover{
+opacity:.9;
+}
+.comments-list{
+display:flex;
+flex-direction:column;
+gap:28px;
+}
+.comment{
+display:flex;
+align-items:flex-start;
+gap:15px;
+}
+.comment>img{
+width:42px;
+height:42px;
+border-radius:50%;
+object-fit:cover;
+flex-shrink:0;
+}
+.comment-body{
+flex:1;
+}
+.comment-body h4{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:15px;
+font-weight:600;
+color:var(--text);
+margin-bottom:8px;
+flex-wrap:wrap;
+}
+.comment-body h4 span{
+font-size:13px;
+font-weight:400;
+color:var(--text-secondary);
+}
+.comment-body p{
+font-size:14px;
+line-height:1.7;
+color:var(--text);
+margin-bottom:12px;
+white-space:pre-wrap;
+word-break:break-word;
+}
+.comment-actions{
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+}
+.comment-actions button{
+display:flex;
+align-items:center;
+gap:6px;
+background:none;
+border:none;
+color:var(--text-secondary);
+cursor:pointer;
+font-size:14px;
+padding:6px 8px;
+border-radius:20px;
+transition:.25s;
+}
+.comment-actions button:hover{
+background:var(--hover);
+color:var(--text);
+}
+.comment-actions svg{
+font-size:15px;
+}
+.reply-input{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+.reply-input input{
+flex:1;
+padding:10px;
+background:transparent;
+border:none;
+border-bottom:1px solid var(--border);
+color:var(--text);
+outline:none;
+}
+.reply-input button{
+padding:8px 18px;
+border:none;
+border-radius:20px;
+background:#3ea6ff;
+color:#fff;
+cursor:pointer;
+}
+.replies{
+margin-top:18px;
+margin-left:55px;
+display:flex;
+flex-direction:column;
+gap:18px;
+padding-left:18px;
+border-left:2px solid var(--border);
+}
+.reply{
+display:flex;
+align-items:flex-start;
+gap:12px;
+}
+.reply img{
+width:34px;
+height:34px;
+border-radius:50%;
+object-fit:cover;
+flex-shrink:0;
+}
+.reply-body{
+flex:1;
+}
+.reply-body h5{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:14px;
+font-weight:600;
+margin-bottom:6px;
+color:var(--text);
+flex-wrap:wrap;
+}
+.reply-body h5 span{
+font-size:12px;
+font-weight:400;
+color:var(--text-secondary);
+}
+.reply-body p{
+font-size:14px;
+line-height:1.6;
+margin-bottom:10px;
+color:var(--text);
+word-break:break-word;
+}
+@media(max-width:992px){
+.comments{
+margin-top:30px;
+}
+.comment-actions{
+gap:12px;
+}
+.replies{
+margin-left:40px;
+}
+}
+@media(max-width:768px){
+.comments h3{
+font-size:20px;
+}
+.comment-input{
+gap:12px;
+}
+.comment-input img,
+.comment>img{
+width:38px;
+height:38px;
+}
+.comment-body h4{
+font-size:14px;
+}
+.comment-body p{
+font-size:13px;
+}
+.comment-actions button{
+font-size:13px;
+padding:5px 7px;
+}
+.replies{
+margin-left:25px;
+padding-left:14px;
+}
+.reply img{
+width:30px;
+height:30px;
+}
+.reply-body h5{
+font-size:13px;
+}
+.reply-body p{
+font-size:13px;
+}
+}
+@media(max-width:480px){
+.comments{
+margin-top:25px;
+}
+.comments h3{
+font-size:18px;
+}
+.comment{
+gap:10px;
+}
+.comment-input{
+gap:10px;
+}
+.comment-input img,
+.comment>img{
+width:34px;
+height:34px;
+}
+.comment-body h4{
+font-size:13px;
+}
+.comment-body h4 span{
+font-size:11px;
+}
+.comment-body p{
+font-size:12px;
+}
+.comment-actions{
+gap:8px;
+}
+.comment-actions button{
+font-size:12px;
+padding:4px 6px;
+}
+.replies{
+margin-left:16px;
+padding-left:10px;
+}
+.reply{
+gap:10px;
+}
+.reply img{
+width:28px;
+height:28px;
+}
+.reply-body h5{
+font-size:12px;
+}
+.reply-body h5 span{
+font-size:11px;
+}
+.reply-body p{
+font-size:12px;
+}
+.comment-input button{
+padding:8px 14px;
+font-size:12px;
+}
+.reply-input{
+flex-direction:column;
+}
+.reply-input button{
+width:100%;
+}
+}

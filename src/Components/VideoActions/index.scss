@@ -1,0 +1,88 @@
+.video-actions{
+display:flex;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+margin:20px 0;
+}
+.video-actions button{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+border:none;
+border-radius:999px;
+background:var(--hover);
+color:var(--text);
+cursor:pointer;
+font-size:14px;
+font-weight:500;
+transition:.3s;
+}
+.video-actions button:hover{
+transform:translateY(-2px);
+}
+.video-actions button:last-child:hover{
+background:#3ea6ff;
+color:#fff;
+}
+.video-actions button.active{
+background:#3ea6ff;
+color:#fff;
+}
+.video-actions button svg{
+font-size:16px;
+}
+@media(max-width:768px){
+.video-actions{
+gap:10px;
+}
+.video-actions button{
+padding:8px 15px;
+font-size:13px;
+}
+}
+@media(max-width:480px){
+.video-actions{
+justify-content:space-between;
+}
+.video-actions button{
+flex:1;
+justify-content:center;
+padding:8px 10px;
+font-size:12px;
+}
+.video-actions button span{
+display:none;
+}
+}
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.18);
+}
+100%{
+transform:scale(1);
+}
+}
+.pulse{
+animation:pulse .35s ease;
+}
+.video-actions button{
+position:relative;
+overflow:hidden;
+}
+.video-actions button:active{
+transform:scale(.95);
+}
+.video-actions button.active{
+background:#3ea6ff;
+color:#fff;
+box-shadow:0 6px 18px rgba(62,166,255,.35);
+}
+.video-actions button:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 15px rgba(0,0,0,.15);
+}

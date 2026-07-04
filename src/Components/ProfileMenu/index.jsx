@@ -65,6 +65,13 @@ alt={currentUser.displayName}
 </div>
 
 <hr/>
+<button onClick={()=>{
+navigate("/profile");
+onClose();
+}}>
+<FaUserCircle/>
+<span>Profile</span>
+</button>
 
 <button onClick={toggleTheme}>
 

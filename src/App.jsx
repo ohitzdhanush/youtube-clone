@@ -10,6 +10,9 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
+import Playlist from "./Pages/Playlist";
+import Notifications from "./Pages/Notifications";
+import Profile from "./Pages/Profile";
 const App=()=>{
 return(
 <Routes>
@@ -22,6 +25,9 @@ return(
 <Route path="/watch-later" element={<ProtectedRoute><WatchLater/></ProtectedRoute>}/>
 <Route path="/liked-videos" element={<ProtectedRoute><LikedVideos/></ProtectedRoute>}/>
 <Route path="/history" element={<ProtectedRoute><History/></ProtectedRoute>}/>
+<Route path="/playlists" element={<ProtectedRoute><Playlist/></ProtectedRoute>}/>
+<Route path="/notifications" element={<ProtectedRoute><Notifications/></ProtectedRoute>}/>
+<Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
 </Routes>
 );
 };

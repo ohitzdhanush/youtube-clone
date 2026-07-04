@@ -1,0 +1,223 @@
+.notifications-page{
+display:flex;
+min-height:100vh;
+background:var(--bg);
+}
+.notifications-content{
+flex:1;
+padding:24px;
+}
+.notifications-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:28px;
+gap:20px;
+flex-wrap:wrap;
+}
+.notifications-header h2{
+font-size:30px;
+font-weight:700;
+color:var(--text);
+}
+.notification-actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+.notification-actions button{
+padding:10px 18px;
+border:none;
+border-radius:999px;
+background:#3ea6ff;
+color:#fff;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+.notification-actions button:hover{
+background:#1d9bf0;
+transform:translateY(-2px);
+}
+.notifications-list{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+.notification-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+padding:18px 20px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:16px;
+transition:.3s;
+}
+.notification-card:hover{
+background:var(--hover);
+transform:translateY(-2px);
+}
+.notification-card.unread{
+border-left:5px solid #3ea6ff;
+}
+.notification-info{
+flex:1;
+cursor:pointer;
+}
+.notification-info h4{
+font-size:18px;
+font-weight:600;
+color:var(--text);
+margin-bottom:8px;
+}
+.notification-info p{
+font-size:15px;
+line-height:1.6;
+color:var(--text-secondary);
+margin-bottom:10px;
+}
+.notification-info span{
+font-size:13px;
+color:var(--text-secondary);
+}
+.delete-btn{
+width:42px;
+height:42px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:none;
+border-radius:50%;
+background:#ff4d4f;
+color:#fff;
+cursor:pointer;
+transition:.3s;
+flex-shrink:0;
+}
+.delete-btn:hover{
+background:#e53935;
+transform:scale(1.08);
+}
+.delete-btn svg{
+font-size:16px;
+}
+.empty-notifications{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+min-height:60vh;
+text-align:center;
+color:var(--text-secondary);
+}
+.empty-notifications svg{
+font-size:80px;
+margin-bottom:20px;
+color:#3ea6ff;
+}
+.empty-notifications h3{
+font-size:28px;
+margin-bottom:10px;
+color:var(--text);
+}
+.empty-notifications p{
+font-size:16px;
+}
+@media(max-width:992px){
+.notifications-content{
+padding:20px;
+}
+.notifications-header h2{
+font-size:26px;
+}
+.notification-card{
+padding:16px;
+}
+.notification-info h4{
+font-size:17px;
+}
+}
+@media(max-width:768px){
+.notifications-content{
+padding:16px;
+}
+.notifications-header{
+flex-direction:column;
+align-items:flex-start;
+}
+.notification-actions{
+width:100%;
+}
+.notification-actions button{
+flex:1;
+}
+.notification-card{
+flex-direction:column;
+align-items:flex-start;
+}
+.delete-btn{
+align-self:flex-end;
+}
+}
+@media(max-width:576px){
+.notifications-content{
+padding:14px;
+}
+.notifications-header h2{
+font-size:24px;
+}
+.notification-info h4{
+font-size:16px;
+}
+.notification-info p{
+font-size:14px;
+}
+.notification-info span{
+font-size:12px;
+}
+.notification-actions button{
+font-size:13px;
+padding:9px 14px;
+}
+.empty-notifications svg{
+font-size:60px;
+}
+.empty-notifications h3{
+font-size:22px;
+}
+}
+@media(max-width:480px){
+.notifications-content{
+padding:12px;
+}
+.notification-card{
+padding:14px;
+}
+.notification-actions{
+flex-direction:column;
+}
+.notification-actions button{
+width:100%;
+}
+.delete-btn{
+width:38px;
+height:38px;
+}
+}
+@media(max-width:360px){
+.notifications-header h2{
+font-size:20px;
+}
+.notification-info h4{
+font-size:15px;
+}
+.notification-info p{
+font-size:13px;
+}
+.notification-info span{
+font-size:11px;
+}
+}

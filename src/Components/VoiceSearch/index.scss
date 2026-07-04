@@ -1,0 +1,153 @@
+.voice-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeIn .3s ease;
+}
+.voice-box{
+width:420px;
+max-width:92%;
+background:var(--card);
+border-radius:24px;
+padding:40px 30px;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+animation:popup .3s ease;
+}
+.voice-box h2{
+font-size:28px;
+font-weight:600;
+color:var(--text);
+margin:20px 0 10px;
+}
+.voice-box p{
+font-size:16px;
+color:var(--text-secondary);
+min-height:26px;
+word-break:break-word;
+margin-bottom:30px;
+}
+.mic{
+width:90px;
+height:90px;
+border-radius:50%;
+background:#ff0000;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+font-size:34px;
+transition:.3s;
+position:relative;
+}
+.mic.active{
+animation:pulse 1.4s infinite;
+}
+.mic.active::before,
+.mic.active::after{
+content:"";
+position:absolute;
+inset:-12px;
+border:2px solid rgba(255,0,0,.45);
+border-radius:50%;
+animation:ripple 2s infinite;
+}
+.mic.active::after{
+animation-delay:1s;
+}
+.voice-box button{
+padding:12px 28px;
+border:none;
+border-radius:999px;
+background:#3ea6ff;
+color:#fff;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+.voice-box button:hover{
+background:#2196f3;
+transform:translateY(-2px);
+}
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.12);}
+100%{transform:scale(1);}
+}
+@keyframes ripple{
+0%{
+transform:scale(1);
+opacity:1;
+}
+100%{
+transform:scale(1.7);
+opacity:0;
+}
+}
+@keyframes popup{
+from{
+opacity:0;
+transform:scale(.85);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+@media(max-width:768px){
+.voice-box{
+padding:30px 20px;
+border-radius:20px;
+}
+.voice-box h2{
+font-size:24px;
+}
+.voice-box p{
+font-size:15px;
+}
+.mic{
+width:75px;
+height:75px;
+font-size:28px;
+}
+.voice-box button{
+width:100%;
+}
+}
+@media(max-width:480px){
+.voice-box{
+width:94%;
+padding:25px 16px;
+}
+.voice-box h2{
+font-size:20px;
+}
+.voice-box p{
+font-size:14px;
+}
+.mic{
+width:65px;
+height:65px;
+font-size:24px;
+}
+.voice-box button{
+padding:10px 20px;
+font-size:14px;
+}
+}
