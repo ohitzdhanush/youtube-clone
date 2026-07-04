@@ -66,7 +66,14 @@ alt={video.snippet.title}
 
 <h4>{video.snippet.title}</h4>
 
-<p>{video.snippet.channelTitle}</p>
+<p
+onClick={(e)=>{
+e.stopPropagation();
+navigate(`/channel/${video.snippet.channelId}`);
+}}
+>
+{video.snippet.channelTitle}
+</p>
 
 <span>{timeAgo(video.snippet.publishedAt)}</span>
 

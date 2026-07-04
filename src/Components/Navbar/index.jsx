@@ -10,6 +10,7 @@ import {useTheme} from "../../Context/themecontext";
 import {getSearchSuggestions} from "../../Services/youtube";
 import useDebounce from "../../Hooks/useDebounce";
 import SearchSuggestions from "../SearchSuggestions";
+import ProfileMenu from "../ProfileMenu/index";
 
 const Navbar=()=>{
 
@@ -18,6 +19,7 @@ const{toggleSidebar}=useSidebar();
 const{theme,toggleTheme}=useTheme();
 const{setSearchText,suggestions,setSuggestions}=useSearch();
 const[input,setInput]=useState("");
+const[showProfile,setShowProfile]=useState(false);
 const debouncedValue=useDebounce(input);
 
 useEffect(()=>{
@@ -82,12 +84,18 @@ handleSearch(item);
 />
 </div>
 </div>
-
 <div className="navbar__right">
-<button className="theme-btn" onClick={toggleTheme}>
+<button
+className="theme-btn"
+onClick={toggleTheme}>
 {theme==="dark"?<FaSun/>:<FaMoon/>}
 </button>
-<FaRegUserCircle className="profile-icon"/>
+<FaRegUserCircle
+className="profile-icon"
+onClick={()=>setShowProfile(prev=>!prev)}/>
+<ProfileMenu
+open={showProfile}
+onClose={()=>setShowProfile(false)}/>
 </div>
 </header>
 );

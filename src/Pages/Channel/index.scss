@@ -1,0 +1,355 @@
+.channel-page{
+display:flex;
+background:var(--bg);
+min-height:100vh;
+}
+
+.channel-content{
+flex:1;
+padding:20px;
+overflow:hidden;
+}
+
+.channel-banner{
+width:100%;
+height:220px;
+border-radius:18px;
+overflow:hidden;
+margin-bottom:25px;
+background:var(--card);
+}
+
+.channel-banner img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.channel-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+margin-bottom:30px;
+padding-bottom:25px;
+border-bottom:1px solid var(--border);
+}
+
+.channel-avatar{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+flex-shrink:0;
+border:4px solid var(--card);
+}
+
+.channel-info{
+flex:1;
+}
+
+.channel-info h2{
+font-size:34px;
+font-weight:700;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.channel-info p{
+font-size:15px;
+color:var(--text-secondary);
+margin-bottom:8px;
+line-height:1.6;
+}
+
+.channel-description{
+max-width:900px;
+display:-webkit-box;
+-webkit-line-clamp:3;
+-webkit-box-orient:vertical;
+overflow:hidden;
+}
+
+.subscribe-btn{
+padding:12px 30px;
+border:none;
+border-radius:999px;
+background:#ff0000;
+color:#fff;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+.subscribe-btn:hover{
+background:#d60000;
+}
+.subscribe-btn.subscribed{
+background:#272727;
+color:#fff;
+}
+body.light .subscribe-btn.subscribed{
+background:#efefef;
+color:#111;
+}
+.video-title{
+font-size:24px;
+font-weight:600;
+color:var(--text);
+margin-bottom:20px;
+}
+
+.channel-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:24px 18px;
+}
+
+.channel-loading{
+padding:100px 20px;
+}
+
+/* Laptop */
+
+@media(max-width:1200px){
+
+.channel-content{
+padding:18px;
+}
+
+.channel-banner{
+height:200px;
+}
+
+.channel-avatar{
+width:120px;
+height:120px;
+}
+
+.channel-info h2{
+font-size:30px;
+}
+
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+.channel-header{
+align-items:flex-start;
+}
+
+.channel-grid{
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.channel-page{
+display:block;
+}
+
+.channel-content{
+padding:15px;
+}
+
+.channel-banner{
+height:170px;
+border-radius:14px;
+}
+
+.channel-header{
+flex-direction:column;
+align-items:center;
+text-align:center;
+gap:18px;
+}
+
+.channel-avatar{
+width:100px;
+height:100px;
+}
+
+.channel-info h2{
+font-size:26px;
+}
+
+.channel-info p{
+font-size:14px;
+}
+
+.subscribe-btn{
+width:220px;
+}
+
+.video-title{
+font-size:22px;
+}
+
+.channel-grid{
+grid-template-columns:1fr;
+gap:18px;
+}
+
+}
+
+/* Small Mobile */
+
+@media(max-width:576px){
+
+.channel-content{
+padding:12px;
+}
+
+.channel-banner{
+height:150px;
+}
+
+.channel-avatar{
+width:85px;
+height:85px;
+}
+
+.channel-info h2{
+font-size:22px;
+}
+
+.channel-info p{
+font-size:13px;
+}
+
+.subscribe-btn{
+width:100%;
+}
+
+.video-title{
+font-size:20px;
+}
+
+}
+
+/* Extra Small */
+
+@media(max-width:360px){
+
+.channel-banner{
+height:130px;
+}
+
+.channel-avatar{
+width:75px;
+height:75px;
+}
+
+.channel-info h2{
+font-size:20px;
+}
+
+.channel-info p{
+font-size:12px;
+}
+
+.video-title{
+font-size:18px;
+}
+
+}
+.end-message{
+text-align:center;
+padding:35px 0;
+font-size:15px;
+color:var(--text-secondary);
+}
+.channel-error{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+min-height:60vh;
+text-align:center;
+}
+
+.channel-error h2{
+font-size:32px;
+color:var(--text);
+margin-bottom:12px;
+}
+
+.channel-error p{
+color:var(--text-secondary);
+margin-bottom:20px;
+}
+
+.channel-error button{
+padding:12px 28px;
+border:none;
+border-radius:999px;
+background:#ff0000;
+color:#fff;
+cursor:pointer;
+font-size:15px;
+font-weight:600;
+}
+
+.channel-error button:hover{
+background:#d60000;
+}
+
+.empty-channel{
+padding:70px 20px;
+text-align:center;
+}
+
+.empty-channel h2{
+font-size:28px;
+color:var(--text);
+margin-bottom:10px;
+}
+
+.empty-channel p{
+font-size:15px;
+color:var(--text-secondary);
+}
+
+@media(max-width:768px){
+
+.channel-error h2{
+font-size:26px;
+}
+
+.empty-channel{
+padding:50px 15px;
+}
+
+.empty-channel h2{
+font-size:22px;
+}
+
+}
+
+@media(max-width:480px){
+
+.channel-error h2{
+font-size:22px;
+}
+
+.channel-error button{
+width:100%;
+max-width:220px;
+}
+
+.empty-channel h2{
+font-size:20px;
+}
+
+.empty-channel p{
+font-size:14px;
+}
+
+}

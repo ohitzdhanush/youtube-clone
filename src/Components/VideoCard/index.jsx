@@ -33,8 +33,10 @@ const VideoCard = ({ video }) => {
         <div className="video-info">
           <h3>{snippet.title}</h3>
 
-          <p>{snippet.channelTitle}</p>
-
+          <p
+          onClick={(e)=>{
+            e.stopPropagation();
+              navigate(`/channel/${snippet.channelId}`);}}>{snippet.channelTitle}</p>
           <span>
             {statistics
               ? `${formatViews(statistics.viewCount)} views • ${timeAgo(

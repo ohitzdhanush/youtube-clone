@@ -1,0 +1,180 @@
+.profile-menu{
+position:absolute;
+top:70px;
+right:20px;
+width:300px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+overflow:hidden;
+z-index:9999;
+animation:menuFade .25s ease;
+}
+
+.profile-header{
+display:flex;
+align-items:center;
+gap:14px;
+padding:18px;
+}
+
+.profile-header img{
+width:52px;
+height:52px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.profile-avatar{
+font-size:52px;
+color:#888;
+}
+
+.profile-header h4{
+font-size:16px;
+font-weight:600;
+color:var(--text);
+margin-bottom:4px;
+}
+
+.profile-header p{
+font-size:13px;
+color:var(--text-secondary);
+word-break:break-word;
+}
+
+.profile-menu hr{
+border:none;
+height:1px;
+background:var(--border);
+}
+
+.profile-menu button{
+width:100%;
+display:flex;
+align-items:center;
+gap:14px;
+padding:15px 20px;
+border:none;
+background:transparent;
+color:var(--text);
+font-size:15px;
+cursor:pointer;
+transition:.25s;
+}
+
+.profile-menu button svg{
+font-size:18px;
+}
+
+.profile-menu button:hover{
+background:var(--hover);
+}
+
+.profile-menu button:last-child{
+color:#ff4d4f;
+}
+
+.profile-menu button:last-child:hover{
+background:rgba(255,77,79,.08);
+}
+
+@keyframes menuFade{
+from{
+opacity:0;
+transform:translateY(-10px) scale(.98);
+}
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+
+@media(max-width:768px){
+
+.profile-menu{
+right:14px;
+top:64px;
+width:280px;
+}
+
+.profile-header{
+padding:16px;
+}
+
+.profile-header img,
+.profile-avatar{
+width:46px;
+height:46px;
+font-size:46px;
+}
+
+.profile-menu button{
+padding:14px 18px;
+font-size:14px;
+}
+
+}
+
+@media(max-width:576px){
+
+.profile-menu{
+width:250px;
+right:10px;
+top:60px;
+border-radius:14px;
+}
+
+.profile-header{
+gap:12px;
+padding:14px;
+}
+
+.profile-header h4{
+font-size:15px;
+}
+
+.profile-header p{
+font-size:12px;
+}
+
+.profile-menu button{
+padding:13px 16px;
+font-size:14px;
+}
+
+}
+
+@media(max-width:400px){
+
+.profile-menu{
+width:220px;
+right:8px;
+}
+
+.profile-header{
+padding:12px;
+}
+
+.profile-header img,
+.profile-avatar{
+width:42px;
+height:42px;
+font-size:42px;
+}
+
+.profile-header h4{
+font-size:14px;
+}
+
+.profile-header p{
+font-size:11px;
+}
+
+.profile-menu button{
+padding:12px 14px;
+font-size:13px;
+}
+
+}

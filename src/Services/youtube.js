@@ -170,3 +170,50 @@ console.log(error);
 return[];
 }
 };
+export const getChannelDetails=async(channelId)=>{
+try{
+
+const response=await axios.get(`${BASE_URL}/channels`,{
+params:{
+part:"snippet,statistics,brandingSettings",
+id:channelId,
+key:API_KEY
+}
+});
+
+return response.data.items[0];
+
+}catch(error){
+console.log(error);
+return null;
+}
+};
+
+export const getChannelVideos=async(channelId,pageToken="")=>{
+try{
+
+const response=await axios.get(`${BASE_URL}/search`,{
+params:{
+part:"snippet",
+channelId,
+type:"video",
+order:"date",
+maxResults:12,
+pageToken,
+key:API_KEY
+}
+});
+
+return{
+videos:response.data.items,
+nextPageToken:response.data.nextPageToken
+};
+
+}catch(error){
+console.log(error);
+return{
+videos:[],
+nextPageToken:null
+};
+}
+};
