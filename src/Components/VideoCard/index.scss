@@ -312,3 +312,16 @@ font-size:10px;
 }
 
 }
+.video-card{
+width:100%;
+max-width:100%;
+}
+.video-card__thumbnail{
+width:100%;
+aspect-ratio:16/9;
+}
+.video-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}

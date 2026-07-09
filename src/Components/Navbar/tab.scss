@@ -1,0 +1,39 @@
+@media(max-width:1440px){
+.navbar{
+padding:0 18px;
+}
+.search-box{
+max-width:620px;
+}
+}
+@media(max-width:1200px){
+.navbar{
+padding:0 16px;
+}
+.navbar__left{
+width:150px;
+}
+.search-box{
+max-width:520px;
+}
+.search-box>button:first-of-type{
+width:60px;
+}
+}
+@media(max-width:992px){
+.navbar{
+padding:0 14px;
+}
+.navbar__left{
+width:auto;
+}
+.navbar__center{
+padding:0 18px;
+}
+.search-box{
+max-width:100%;
+}
+.profile-icon{
+font-size:34px;
+}
+}

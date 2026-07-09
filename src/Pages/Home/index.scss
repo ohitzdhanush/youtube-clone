@@ -92,18 +92,22 @@ gap:18px 14px;
 
 @media(max-width:768px){
 .home{
+width:100%;
 display:block;
 }
-
 .home-content{
 width:100%;
-padding:14px;
+max-width:100%;
+margin:0;
+padding:12px;
+overflow:hidden;
 }
-
 .video-grid{
-grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-gap:16px;
-margin-top:16px;
+display:grid;
+grid-template-columns:1fr;
+gap:18px;
+width:100%;
+margin-top:14px;
 }
 }
 

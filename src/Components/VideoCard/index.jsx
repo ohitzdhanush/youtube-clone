@@ -5,11 +5,8 @@ import timeAgo from "../../Utils/timeAgo";
 
 const VideoCard = ({ video }) => {
   const navigate = useNavigate();
-
   const { snippet, statistics, channelImage } = video;
-
   const videoId = video.id.videoId || video.id;
-
   const handleVideo = () => {
     navigate(`/video/${videoId}`);
   };

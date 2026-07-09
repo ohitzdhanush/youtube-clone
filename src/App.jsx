@@ -13,6 +13,7 @@ import PublicRoute from "./Components/PublicRoute";
 import Playlist from "./Pages/Playlist";
 import Notifications from "./Pages/Notifications";
 import Profile from "./Pages/Profile";
+import MyVideos from "./Pages/MyVideos";
 const App=()=>{
 return(
 <Routes>
@@ -28,6 +29,7 @@ return(
 <Route path="/playlists" element={<ProtectedRoute><Playlist/></ProtectedRoute>}/>
 <Route path="/notifications" element={<ProtectedRoute><Notifications/></ProtectedRoute>}/>
 <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
+<Route path="/my-videos" element={<ProtectedRoute><MyVideos/></ProtectedRoute>}/>
 </Routes>
 );
 };

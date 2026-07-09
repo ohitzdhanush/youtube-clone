@@ -1,8 +1,10 @@
-import "./index.scss";
+import "./dekstop.scss";
+import "./mobile.scss";
+import "./tab.scss";
 import {useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {HiMenu} from "react-icons/hi";
-import {FaYoutube,FaRegUserCircle,FaMoon,FaSun,FaBell} from "react-icons/fa";
+import {FaYoutube,FaRegUserCircle,FaMoon,FaSun,FaBell,FaPlus} from "react-icons/fa";
 import {IoSearch,IoMic} from "react-icons/io5";
 import {useSidebar} from "../../Context/sidebarcontext";
 import {useSearch} from "../../Context/search";
@@ -13,6 +15,8 @@ import SearchSuggestions from "../SearchSuggestions";
 import ProfileMenu from "../ProfileMenu";
 import VoiceSearch from "../VoiceSearch";
 import {useNotification} from "../../Context/notificationcontext";
+import UploadVideoModal from "../UploadVideoModal/index";
+
 
 const Navbar=()=>{
 const navigate=useNavigate();
@@ -24,6 +28,7 @@ const{setSearchText,suggestions,setSuggestions}=useSearch();
 const[input,setInput]=useState("");
 const[showVoiceSearch,setShowVoiceSearch]=useState(false);
 const[showProfile,setShowProfile]=useState(false);
+const[showUpload,setShowUpload]=useState(false);
 const debouncedValue=useDebounce(input);
 
 useEffect(()=>{
@@ -95,10 +100,15 @@ navigate(`/search/${encodeURIComponent(text)}`);
 />
 </div>
 <div className="navbar__right">
-<button className="theme-btn" onClick={toggleTheme}>{theme==="dark"?<FaSun/>:<FaMoon/>}</button>
-<div className="notification-btn" onClick={()=>navigate("/notifications")}><FaBell/>{unreadCount>0&&<span className="notification-count">{unreadCount>99?"99+":unreadCount}</span>}</div>
+<button className="create-btn desktop-only" onClick={()=>setShowUpload(true)}>
+<FaPlus/>
+<span>Create</span>
+</button>
+<button className="theme-btn desktop-only" onClick={toggleTheme}>{theme==="dark"?<FaSun/>:<FaMoon/>}</button>
+<div className="notification-btn desktop-only" onClick={()=>navigate("/notifications")}><FaBell/>{unreadCount>0&&<span className="notification-count">{unreadCount>99?"99+":unreadCount}</span>}</div>
 <FaRegUserCircle className="profile-icon" onClick={()=>setShowProfile(prev=>!prev)}/>
 <ProfileMenu open={showProfile} onClose={()=>setShowProfile(false)}/>
+<UploadVideoModal open={showUpload} onClose={()=>setShowUpload(false)}/>
 </div>
 </header>
 );

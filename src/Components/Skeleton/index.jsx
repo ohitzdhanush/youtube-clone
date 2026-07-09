@@ -1,6 +1,6 @@
 import "./index.scss";
 
-const Skeleton=({count=12})=>{
+const Skeleton=({count=120})=>{
 return(
 <div className="skeleton-grid" aria-hidden="true">
 {Array.from({length:count}).map((_,index)=>(
@@ -21,3 +21,5 @@ return(
 };
 
 export default Skeleton;
+
+

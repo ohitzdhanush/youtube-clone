@@ -57,8 +57,13 @@ return[...prev,...newVideos];
 setVideos(data.videos);
 }
 
-setNextPageToken(data.nextPageToken||"");
-setHasMore(!!data.nextPageToken);
+if(data.nextPageToken){
+setNextPageToken(data.nextPageToken);
+setHasMore(true);
+}else{
+setNextPageToken("");
+setHasMore(false);
+}
 
 }catch(error){
 console.log(error);
@@ -73,7 +78,8 @@ fetching.current=false;
 
 const lastVideoRef=node=>{
 
-if(loadingMore||!hasMore)return;
+if(loadingMore)return;
+if(!hasMore)return;
 
 if(observer.current){
 observer.current.disconnect();
@@ -84,6 +90,7 @@ entries=>{
 
 if(
 entries[0].isIntersecting&&
+hasMore&&
 nextPageToken&&
 !fetching.current
 ){
@@ -116,7 +123,7 @@ return(
 <CategoryBar/>
 
 {loading?(
-<Skeleton count={12}/>
+<Skeleton count={120}/>
 ):(
 <>
 <div className="video-grid">
@@ -146,7 +153,7 @@ video={video}
 </div>
 
 {loadingMore&&(
-<Skeleton count={4}/>
+<Skeleton count={120}/>
 )}
 
 {!hasMore&&videos.length>0&&(
